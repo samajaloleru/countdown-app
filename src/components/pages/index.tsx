@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import logo from '../../assets/images/logo.png';
+import bgVideo from '../../assets/images/video.mp4';
 
 interface TimeRemaining {
   days: string;
@@ -25,7 +26,6 @@ export default function Home(): JSX.Element {
     seconds: "00",
   });
 
-  // const deadline = new Date("December 31, 2024 23:59:59");
   const deadline = new Date("December 31, 2024 23:59:59");
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -65,9 +65,9 @@ export default function Home(): JSX.Element {
   }, [deadline]);
 
   return (
-    <div className="flex flex-col items-center w-11/12 lg:p-10 p-3 text-white bg-black bg-opacity-50 rounded-xl">
+    <div className="flex flex-col items-center w-11/12 lg:p-10 p-3 text-white">
       {!isComplete ? (
-        <div className="flex flex-col w-full gap-5">
+        <div className="flex flex-col w-full gap-5  bg-black bg-opacity-50 rounded-xl">
           <div className="flex flex-row items-center justify-between w-full">
             <Link
               to="/games"
@@ -94,9 +94,27 @@ export default function Home(): JSX.Element {
           <div className="flex w-full font-bold tracking-wide text-yellow lg:text-[6rem] text-[2rem] justify-center capitalize">to the Year 2025</div>
         </div>
       ) : (
-        <div className="dtc w-100 v-mid bg-purple">
-          <div className="fl w-100 f-headline-l f1 heartbeat b tc yellow">
-            Thanks for attending the program
+        <div className="relative h-screen w-full">
+          {/* Video Background */}
+          <video
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src={bgVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          {/* Overlay */}
+          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+
+          {/* Text Content */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full">
+            <div className="text-white w-3/5 text-4xl lg:text-[9rem] lg:leading-[10rem] md:text-[5rem] font-bold text-center">
+              Welcome to the Year <span className="text-yellow-500 font-extrabold">2025.</span>
+            </div>
           </div>
         </div>
       )}
