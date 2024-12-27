@@ -17,8 +17,11 @@ interface TimeBoxProps {
   isLast?: boolean;
 }
 
+// Move deadline outside the component to ensure it's stable
+const deadline = new Date("December 31, 2024 23:59:59");
+
 export default function Home(): JSX.Element {
-  const [isComplete, setIsComplete] = useState<boolean>(false);
+  const [isComplete, setIsComplete] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>({
     days: "00",
     hours: "00",
@@ -26,7 +29,6 @@ export default function Home(): JSX.Element {
     seconds: "00",
   });
 
-  const deadline = new Date("December 31, 2024 23:59:59");
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -62,16 +64,16 @@ export default function Home(): JSX.Element {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [deadline]);
+  }, []); // Empty dependency array ensures this effect runs only once
 
   return (
     <div className="flex flex-col items-center w-11/12 lg:p-10 p-3 text-white">
       {!isComplete ? (
-        <div className="flex flex-col w-full gap-5  bg-black bg-opacity-50 rounded-xl">
+        <div className="flex flex-col w-full gap-5 bg-black bg-opacity-50 rounded-xl">
           <div className="flex flex-row items-center justify-between w-full">
             <Link
               to="/games"
-              className="fl mt3 no-underline purple bg-yellow-500 hover-orange w-auto p-3 font-semibold br2"
+              className="fl mt3 no-underline oswald-font bg-yellow-500 hover-orange w-auto p-3 font-semibold br2"
             >
               Play Games
             </Link>
@@ -91,7 +93,9 @@ export default function Home(): JSX.Element {
               <TimeBox label="Seconds" value={timeRemaining.seconds} isLast />
             </div>
           </div>
-          <div className="flex w-full font-bold tracking-wide text-yellow lg:text-[6rem] text-[2rem] justify-center capitalize">to the Year 2025</div>
+          <div className="flex w-full font-bold tracking-wide text-yellow lg:text-[6rem] text-[2rem] justify-center capitalize oswald-font">
+            to the Year 2025
+          </div>
         </div>
       ) : (
         <div className="relative h-screen w-full">
@@ -123,14 +127,18 @@ export default function Home(): JSX.Element {
 }
 
 const TimeBox: React.FC<TimeBoxProps> = ({ label, value, isLast = false }) => (
-  <div className={`lg:w-full w-1/2 flex flex-col items-center hover:text-yellow-500 cursor-pointer pa3 ${isLast ? "text-yellow-500" : "text-white"} br4`}>
-    <div className="flex lg:text-[14rem] text-[4rem] font-semibold">{value}</div>
-    <div className={`flex lg:text-[4rem] text-[1.5rem] ${isLast ? "text-yellow" : ""}`}>{label}</div>
+  <div
+    className={`lg:w-full w-1/2 flex flex-col items-center hover:text-yellow-500 cursor-pointer pa3 ${
+      isLast ? "text-yellow-500" : "text-white"
+    } br4`}
+  >
+    <div className="flex lg:text-[20rem] text-[4rem] font-semibold">{value}</div>
+    <div className={`flex lg:text-[6rem] text-[1.5rem] ${isLast ? "text-yellow" : ""}`}>{label}</div>
   </div>
 );
 
 const Separator: React.FC = () => (
   <div className="w-auto flex-auto ">
-    <div className="lg:text-[5rem] yellow">:</div>
+    <div className="lg:text-[5rem]">:</div>
   </div>
 );

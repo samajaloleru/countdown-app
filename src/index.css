@@ -9,17 +9,16 @@
 @import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-bold-straight/css/uicons-bold-straight.css');
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@200..800&family=Oswald:wght@200..700&display=swap');
 body {
   margin: 0;
-  font-family: 'Oswald', serif;
+  font-family: 'Bebas Neue', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.rubik-font {
-  font-family: 'Rubik', serif;
+.oswald-font {
+  font-family: 'Oswald', serif;
 }
 
 .montserrat-font {
