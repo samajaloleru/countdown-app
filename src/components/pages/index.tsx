@@ -67,7 +67,7 @@ export default function Home(): JSX.Element {
   }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <div className="flex flex-col items-center w-11/12 lg:p-10 p-3 text-white">
+    <div className="flex flex-col items-center w-11/12 z-30 lg:p-10 p-3 text-white">
       {!isComplete ? (
         <div className="flex flex-col w-full gap-5 bg-black bg-opacity-50 rounded-xl">
           <div className="flex flex-row items-center justify-between w-full">

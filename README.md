@@ -16,7 +16,7 @@ A **React** application styled with **TailwindCSS** that helps track upcoming ev
 ## **About the Project**
 The Countdown App is designed to provide users with an intuitive and visually appealing interface to track the countdown to significant events throughout the year. Whether it's for New Year celebrations, corporate events, or local festivals, this app is versatile and fully customizable.
 
-**Live Demo**: [Countdown App](https://countdown-app.vercel.app)
+**Live Demo**: [Countdown App](https://countdown-app-mauve.vercel.app/)
 
 ---
 
