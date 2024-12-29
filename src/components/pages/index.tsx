@@ -132,8 +132,8 @@ const TimeBox: React.FC<TimeBoxProps> = ({ label, value, isLast = false }) => (
       isLast ? "text-yellow-500" : "text-white"
     } br4`}
   >
-    <div className="flex lg:text-[18rem] text-[4rem] font-semibold">{value}</div>
-    <div className={`flex lg:text-[5rem] text-[1.5rem] ${isLast ? "text-yellow" : ""}`}>{label}</div>
+    <div className="flex lg:text-[17rem] text-[4rem] font-semibold">{value}</div>
+    <div className={`flex lg:text-[4rem] text-[1.5rem] ${isLast ? "text-yellow" : ""}`}>{label}</div>
   </div>
 );
 
