@@ -18,7 +18,7 @@ interface TimeBoxProps {
 }
 
 // Move deadline outside the component to ensure it's stable
-const deadline = new Date("December 31, 2024 23:59:59");
+const deadline = new Date("December 31, 2025 23:59:59");
 
 export default function Home(): JSX.Element {
   const [isComplete, setIsComplete] = useState(false);
