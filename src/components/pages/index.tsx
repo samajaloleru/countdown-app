@@ -94,7 +94,7 @@ export default function Home(): JSX.Element {
             </div>
           </div>
           <div className="flex w-full font-bold tracking-wide text-yellow lg:text-[6rem] text-[2rem] justify-center capitalize oswald-font">
-            to the Year 2025
+            to the Year 2026
           </div>
         </div>
       ) : (
