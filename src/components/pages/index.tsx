@@ -118,7 +118,7 @@ export default function Home(): JSX.Element {
           {/* Text Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
             <div className="text-white w-3/5 text-4xl lg:text-[9rem] lg:leading-[10rem] md:text-[5rem] font-bold text-center">
-              Welcome to the Year <span className="text-green-700 font-extrabold">2025.</span>
+              Welcome to the Year <span className="text-green-700 font-extrabold">2026.</span>
             </div>
           </div>
         </div>
