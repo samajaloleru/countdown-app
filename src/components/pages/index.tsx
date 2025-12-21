@@ -67,13 +67,13 @@ export default function Home(): JSX.Element {
   }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <div className="flex flex-col items-center w-11/12 z-30 lg:p-10 p-3 text-white">
+    <div className="flex flex-col items-center w-11/12 z-30 lg:p-10 p-3 text-red-700">
       {!isComplete ? (
-        <div className="flex flex-col w-full gap-5 bg-black bg-opacity-50 rounded-xl">
-          <div className="flex flex-row items-center justify-between w-full">
+        <div className="flex flex-col items-center w-3/4 gap-5 rounded-xl">
+          <div className="flex flex-row items-center justify-between w-full bg-white bg-opacity-45 p-3">
             <Link
               to="/games"
-              className="fl mt3 no-underline oswald-font bg-yellow-500 hover-orange w-auto p-3 font-semibold br2"
+              className="fl mt3 no-underline germania-font bg-white hover-orange w-auto p-3 font-semibold br2"
             >
               Play Games
             </Link>
@@ -81,7 +81,6 @@ export default function Home(): JSX.Element {
               <img className="h-20" src={logo} alt="Logo" />
             </div>
           </div>
-
           <div className="flex flex-col w-full">
             <div id="clockdiv" className="flex flex-row lg:gap-4 items-center justify-center">
               <TimeBox label="Days" value={timeRemaining.days} />
@@ -93,8 +92,10 @@ export default function Home(): JSX.Element {
               <TimeBox label="Seconds" value={timeRemaining.seconds} isLast />
             </div>
           </div>
-          <div className="flex w-full font-bold tracking-wide text-yellow lg:text-[6rem] text-[2rem] justify-center capitalize oswald-font">
-            to the Year 2025
+          <div className="flex flex-row items-center justify-center w-full bg-red-900 rounded-lg p-3">
+            <div className="fr-ns right-0-ns tracking-wider text-3xl font-semibold text-white">
+              Countdown to the New Year 2026
+            </div>
           </div>
         </div>
       ) : (
@@ -117,7 +118,7 @@ export default function Home(): JSX.Element {
           {/* Text Content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
             <div className="text-white w-3/5 text-4xl lg:text-[9rem] lg:leading-[10rem] md:text-[5rem] font-bold text-center">
-              Welcome to the Year <span className="text-yellow-500 font-extrabold">2025.</span>
+              Welcome to the Year <span className="text-green-700 font-extrabold">2025.</span>
             </div>
           </div>
         </div>
@@ -128,12 +129,12 @@ export default function Home(): JSX.Element {
 
 const TimeBox: React.FC<TimeBoxProps> = ({ label, value, isLast = false }) => (
   <div
-    className={`lg:w-full w-1/2 flex flex-col items-center hover:text-yellow-500 cursor-pointer pa3 ${
-      isLast ? "text-yellow-500" : "text-white"
+    className={`lg:w-full w-1/2 flex flex-col items-center hover:text-red-700 cursor-pointer pa3 ${
+      isLast ? "text-red-700" : "text-green-900"
     } br4`}
   >
-    <div className="flex lg:text-[17rem] text-[4rem] font-semibold">{value}</div>
-    <div className={`flex lg:text-[4rem] text-[1.5rem] ${isLast ? "text-yellow" : ""}`}>{label}</div>
+    <div className="flex lg:text-[10rem] text-[4rem] font-bold">{value}</div>
+    <div className={`flex font-medium lg:text-[4rem] text-[1.5rem] ${isLast ? "text-red-700" : ""}`}>{label}</div>
   </div>
 );
 

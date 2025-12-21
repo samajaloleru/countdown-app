@@ -92,7 +92,7 @@ const Games: React.FC = () => {
           <div className="lg:text-[5rem] text-[3rem] font-semibold">Tic Tac</div>
           <div
             onClick={resetGame}
-            className="oswald-font hover:bg-yellow-300 hover:text-black font-medium cursor-pointer p-3 tc"
+            className="germania-font hover:bg-yellow-300 hover:text-black font-medium cursor-pointer p-3 tc"
           >
             Reset Game
           </div>
@@ -120,7 +120,7 @@ const Games: React.FC = () => {
 
           <div
             id="print"
-            className="bg-white text-black oswald-font font-medium mt-10 px-5 py-3"
+            className="bg-white text-black germania-font font-medium mt-10 px-5 py-3"
           >
             {message}
           </div>

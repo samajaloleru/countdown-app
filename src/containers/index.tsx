@@ -30,7 +30,7 @@ const IndexRoutes = () => {
           <Route path="/*" element={<NotFound/>} />
         </Routes>
       </AlertProvider>
-      {/* <div className='absolute bottom-1 bg-black bg-opacity-80 py-5 z-10 w-full text-center text-white oswald-font'>
+      {/* <div className='absolute bottom-1 bg-black bg-opacity-80 py-5 z-10 w-full text-center text-white germania-font'>
         Powered by Authentic Sam
       </div> */}
     </div>
