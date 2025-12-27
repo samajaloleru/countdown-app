@@ -67,18 +67,22 @@ export default function Home(): JSX.Element {
   }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <div className="flex flex-col items-center w-11/12 z-30 lg:p-10 p-3 text-red-700">
+    <div className="flex flex-col relative items-center w-11/12 z-30 lg:p-10 p-3 text-red-700">
+      <img className="absolute h-28 top-2 shadow-2xl" src={logo} alt="Logo" />
       {!isComplete ? (
         <div className="flex flex-col items-center w-4/5 gap-5 rounded-xl">
-          <div className="flex flex-row items-center justify-between w-full bg-white bg-opacity-45 p-3">
+          <div className="flex flex-row items-center justify-between w-full bg-linear-to-bl from-violet-900 to-fuchsia-900 p-3">
             <Link
               to="/games"
               className="fl text-2xl mt3 no-underline germania-font bg-white hover-orange w-auto p-3 font-semibold br2"
             >
               Play Games
             </Link>
-            <div className="fr-ns right-0-ns">
-              <img className="h-20" src={logo} alt="Logo" />
+            
+          </div>
+          <div className="flex flex-row items-center justify-center w-full bg-red-900 rounded-lg p-3">
+            <div className="fr-ns right-0-ns tracking-wider text-5xl font-semibold text-white">
+              Countdown to the New Year 2026
             </div>
           </div>
           <div className="flex flex-col w-full">
@@ -90,11 +94,6 @@ export default function Home(): JSX.Element {
               <TimeBox label="Minutes" value={timeRemaining.minutes} />
               <Separator />
               <TimeBox label="Seconds" value={timeRemaining.seconds} isLast />
-            </div>
-          </div>
-          <div className="flex flex-row items-center justify-center w-full bg-red-900 rounded-lg p-3">
-            <div className="fr-ns right-0-ns tracking-wider text-5xl font-semibold text-white">
-              Countdown to the New Year 2026
             </div>
           </div>
         </div>
@@ -133,8 +132,8 @@ const TimeBox: React.FC<TimeBoxProps> = ({ label, value, isLast = false }) => (
       isLast ? "text-red-700" : "text-green-900"
     } br4`}
   >
-    <div className="flex lg:text-[13rem] text-[4rem] font-bold">{value}</div>
-    <div className={`flex font-medium lg:text-[4rem] text-[1.5rem] ${isLast ? "text-red-700" : ""}`}>{label}</div>
+    <div className="flex lg:text-[13rem] text-[4rem] font-bold leading-none">{value}</div>
+    <div className={`flex font-semibold lg:text-[4rem] text-[1.5rem] ${isLast ? "text-red-700" : ""}`}>{label}</div>
   </div>
 );
 
