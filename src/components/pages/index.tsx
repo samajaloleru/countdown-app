@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import logo from '../../assets/images/logo.png';
+import newYearImage from '../../assets/images/new-year.jpg';
 import bgVideo from '../../assets/images/video.mp4';
 
 interface TimeRemaining {
@@ -18,6 +19,7 @@ interface TimeBoxProps {
 }
 
 // Move deadline outside the component to ensure it's stable
+// const deadline = new Date("December 28, 2025 12:49:59");
 const deadline = new Date("December 31, 2025 23:59:59");
 
 export default function Home(): JSX.Element {
@@ -66,10 +68,40 @@ export default function Home(): JSX.Element {
     };
   }, []); // Empty dependency array ensures this effect runs only once
 
+
+  if(isComplete){
+    return (
+      <div className="relative h-screen w-full">
+        {/* Video Background */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={bgVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Overlay */}
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div> */}
+
+        {/* Text Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full">
+          <img className="absolute h-5/6 shadow-2xl" src={newYearImage} alt="newYearImage" />
+          {/* <div className="text-white w-3/5 text-4xl lg:text-[9rem] lg:leading-[10rem] md:text-[5rem] font-bold text-center">
+            Welcome to the Year <span className="text-green-700 font-extrabold">2026.</span>
+          </div> */}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col relative items-center w-11/12 z-30 lg:p-10 p-3 text-red-700">
       <img className="absolute h-28 top-2 shadow-2xl" src={logo} alt="Logo" />
-      {!isComplete ? (
+      {!isComplete  &&
         <div className="flex flex-col items-center w-4/5 gap-5 rounded-xl">
           <div className="flex flex-row items-center justify-between w-full bg-linear-to-bl from-violet-900 to-fuchsia-900 p-3">
             <Link
@@ -97,31 +129,7 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </div>
-      ) : (
-        <div className="relative h-screen w-full">
-          {/* Video Background */}
-          <video
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src={bgVideo} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-
-          {/* Overlay */}
-          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
-
-          {/* Text Content */}
-          <div className="relative z-10 flex flex-col items-center justify-center h-full">
-            <div className="text-white w-3/5 text-4xl lg:text-[9rem] lg:leading-[10rem] md:text-[5rem] font-bold text-center">
-              Welcome to the Year <span className="text-green-700 font-extrabold">2026.</span>
-            </div>
-          </div>
-        </div>
-      )}
+      }
     </div>
   );
 }
